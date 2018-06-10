@@ -1,0 +1,122 @@
+-- MySQL dump 10.16  Distrib 10.1.31-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: noons_cardealers
+-- ------------------------------------------------------
+-- Server version	10.1.31-MariaDB-cll-lve
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `administratorzy`
+--
+
+DROP TABLE IF EXISTS `administratorzy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `administratorzy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nick` varchar(32) NOT NULL,
+  `haslo` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `ip` varchar(20) NOT NULL,
+  `rezerwacja` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `administratorzy`
+--
+
+LOCK TABLES `administratorzy` WRITE;
+/*!40000 ALTER TABLE `administratorzy` DISABLE KEYS */;
+INSERT INTO `administratorzy` VALUES (14,'admin','0192023a7bbd73250516f069df18b500','admin@admin.pl','213.136.244.3',0);
+/*!40000 ALTER TABLE `administratorzy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auta`
+--
+
+DROP TABLE IF EXISTS `auta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `marka` varchar(50) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `zdjecie_url` varchar(250) NOT NULL,
+  `rokprodukcji` varchar(50) NOT NULL,
+  `silnik` varchar(50) NOT NULL,
+  `nadwozie` varchar(50) NOT NULL,
+  `waga` varchar(50) NOT NULL,
+  `wysokosc` varchar(50) NOT NULL,
+  `szerokosc` varchar(50) NOT NULL,
+  `dlugosc` varchar(50) NOT NULL,
+  `naped` varchar(50) NOT NULL,
+  `spalanie_srednie` varchar(50) NOT NULL,
+  `spalanie_miasto` varchar(50) NOT NULL,
+  `spalanie_trasa` varchar(50) NOT NULL,
+  `cena` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auta`
+--
+
+LOCK TABLES `auta` WRITE;
+/*!40000 ALTER TABLE `auta` DISABLE KEYS */;
+INSERT INTO `auta` VALUES (7,'BMW','E46','https://upload.wikimedia.org/wikipedia/commons/4/48/BMW_E46_front_20080822.jpg','2002','2.8','Sedan','1360kg','1369mm','1739mm','4262mm','Tylni','9.8l','13.2l','7.5l','17500zl'),(8,'Audi','A6','https://upload.wikimedia.org/wikipedia/commons/3/30/Audi_A6_C5_front_20081009.jpg','2004','2.7T','Sedan','1450kg','1453mm','1810mm','4796mm','Przedni','12.1l','16.3l','9.2l','13200zl'),(9,'Honda','Accord','https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Honda_Accord_CL3_europe.jpg/800px-Honda_Accord_CL3_europe.jpg','2001','2.2','Liftback','1380kg','1430mm','1750mm','4595mm','Przedni','9.2l','10.5l','8.3l','8400zl'),(10,'Renault','Megane','https://i.imgur.com/lyqqeHA.jpg','2001','1.4','Sedan','1085kg','1420mm','1698mm','4436mm','Przedni','7.1l','9.2l','6.5l','4500zl');
+/*!40000 ALTER TABLE `auta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uzytkownicy`
+--
+
+DROP TABLE IF EXISTS `uzytkownicy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `uzytkownicy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nick` varchar(32) NOT NULL,
+  `haslo` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `ip` varchar(20) NOT NULL,
+  `wybrane_auto` int(10) NOT NULL,
+  `wybrane_auto2` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uzytkownicy`
+--
+
+LOCK TABLES `uzytkownicy` WRITE;
+/*!40000 ALTER TABLE `uzytkownicy` DISABLE KEYS */;
+INSERT INTO `uzytkownicy` VALUES (1,'TomaszNowak','b06ff93d9a017d2cdb4bd2317ef5ec61','tomasz@nowak.pl','213.136.244.3',10,8),(2,'KrystianTerejko','b06ff93d9a017d2cdb4bd2317ef5ec61','krystian@noons.pl','213.136.244.3',7,10),(3,'admin@admin.pl','3eff93d20a5522ffff67268dccb7a6f6','admin@admin.pl','213.136.244.3',8,10);
+/*!40000 ALTER TABLE `uzytkownicy` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-06-10 22:00:53
